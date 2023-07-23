@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/mongodb/database:/data/db
+  cache:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    ports:
+      - '8001:8001'
+
+# host: host.docker.internal
+# name: cache
